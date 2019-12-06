@@ -1,4 +1,34 @@
 #:kivy 1.0
 #:import kivy kivy
 
+<Pokemon@ToggleButton>:
+	image_source: ''
+	subtext: ''
+	pid: ''
+	height: 400
 
+	GridLayout:
+		height: self.parent.height
+		pos: self.parent.pos
+		cols: 1
+		width: 128
+
+
+		Label:
+			text: root.pid
+			font_size: 100
+			bold: True
+			color: 200,200,200,1
+			
+			AsyncImage:
+				size_hint_y: None
+				size_hint_x: None
+				keep_ratio: True
+				allow_scretch: True
+				center: self.parent.x + self.parent.width/2, self.parent.y + self.parent.height/2 - 11
+				source: root.image_source
+				width: self.parent.parent.width * 5
+				height: self.parent.parent.height * 5
+		Label:
+			font_size: 40
+			text: root.subtext
